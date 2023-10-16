@@ -12,3 +12,17 @@ INSERT INTO nomes (nome) VALUES
     ('Roberto'),
     ('Maria Clara'),
     ('João');
+--b)
+SELECT UPPER(nome) AS nome_maiusculo FROM nomes;
+
+--c)
+SELECT nome, LENGTH(nome) AS tamanho_nome FROM nomes;
+
+--d)
+SELECT 
+    CASE 
+        WHEN nome LIKE '%Roberto%' OR nome LIKE '%João%' THEN CONCAT('Sr. ', nome)
+        WHEN nome LIKE '%Roberta%' OR nome LIKE '%Maria Clara%' THEN CONCAT('Sra. ', nome)
+        ELSE nome
+    END AS nome_com_tratamento
+FROM nomes;
